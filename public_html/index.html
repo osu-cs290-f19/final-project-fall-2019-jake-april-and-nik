@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    
+  <head>
+      
+    <meta charset="utf-8">
+    <title>Final Project</title>
+
+    <!-- This 3rd-party stylesheet incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
+    <link rel="stylesheet.css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet.css">
+      
+    <!--   <link rel="stylesheet" href="style.css"> -->
+      
+  </head>
+    
+  <body>
+    <!--   This is our banner or the top of the webpage -->
+      <div class = "banner">
+            <h1 class= "site-name">Benny Chan</h1>
+      </div>
+      
+    <!--   This is our overall content for the page -->
+      
+    <main class="site-content">
+        
+        <div class="site-user-info">
+          <label for="site-username-btn" class="username-static-label">Username:</label>
+          <label for="site-username-btn" class="username-dynamic-label">Anon</label>
+          <div class="site-username-btn">
+              <button id="username-btn" class="change-username-btn">Change Username</button>          
+            </div>
+        </div>
+        
+            <!--   This is our options fields-->
+
+        <aside class= "site-options">
+            
+        <h2>Site Options</h2>
+            
+            <!--   This is our featured posts-->
+            
+        <h3>Featured Posts</h3>
+        <div class="top-post-1" up-votes ="0">
+            <h4>1. </h4>
+          <div class="post">
+            <div class="post-data">
+                <img id = "post-one-profile" src="https://howfix.net/wp-content/uploads/2018/02/sIaRmaFSMfrw8QJIBAa8mA-article.png">
+                <blockquote class = "post-value">Put post data here</blockquote>
+                <div class = "upvotes-featured">
+                    <p id = "upvotes-featured-one">0</p>    
+                    <button class ="upvote"><i class="far fa-hand-point-up"></i></button>               
+                </div>
+            </div>
+          </div>
+        </div>
+            
+        <div class="top-post-2" up-votes ="0">
+            <h4>2. </h4>
+          <div class="post">
+            <div class="post-data">
+                <img id = "post-two-profile" src="https://howfix.net/wp-content/uploads/2018/02/sIaRmaFSMfrw8QJIBAa8mA-article.png">
+                <blockquote class = "post-value">Put post data here</blockquote>
+                <div class = "upvotes-featured">
+                    <p id = "upvotes-featured-two">0</p>
+                    <button class ="upvote"><i class="far fa-hand-point-up"></i></button>               
+                </div>
+            </div>
+        </div>
+        </div>
+            
+        <div class="top-post-3" up-votes ="0">
+            <h4>3. </h4>
+          <div class="post">
+            <div class="post-data">
+                <img id = "post-three-profile" src="https://howfix.net/wp-content/uploads/2018/02/sIaRmaFSMfrw8QJIBAa8mA-article.png">
+                <blockquote class = "post-value">Put post data here</blockquote>
+                <div class = "upvotes-featured">
+                    <p id = "upvotes-featured-three">0</p>  
+                    <button class ="upvote"><i class="far fa-hand-point-up"></i></button>               
+                </div>
+            </div>
+        </div>
+            </div>
+            
+            <!--   This is our chat rooms -->
+      
+        <h3>Chat rooms</h3>
+
+        <div class="site-chat-rooms">
+          <div class="filter-input-element">
+            <select id="chat-room-options" class="chat-room-input" name="chat-rooms">
+              <option selected value>General</option>
+              <option>Random</option>
+              <option>Misc</option>
+            </select>
+          </div>
+        </div>
+            
+        <h3>Statistics</h3>
+            <div class ="site-statistics">
+                <h4 class ="site-statisitics-display">Online</h4>
+                <p class ="site-statistics-online">0</p>
+                <h4 class ="site-statisitics-display">Total Visitors</h4>
+                <p class ="site-statistics-totalvisit">0</p>
+                <h4 class ="site-statisitics-display">Total Posts Made</h4>
+                <p class ="site-statistics-totalposts">0</p>            
+            
+            </div>
+            
+            <!--   This is our display options -->
+            
+        <h3>Display Options</h3>
+        <div class="site-display-options">
+          <fieldset id="display-conditions" class="display-fields">
+            <legend>Page Styles</legend>
+            <div>
+              <input type="checkbox" name="display-condition" id="display-condition-" value="">
+              <label for="display-condition-">Not stipulated</label>
+            </div>
+            <div>
+              <input type="checkbox" name="display-condition" id="display-condition-" value="">
+              <label for="display-condition-">Not stipulated</label>
+            </div>
+            <div>
+              <input type="checkbox" name="display-condition" id="display-condition-" value="">
+              <label for="display-condition-">Not stipulated</label>
+            </div>
+            <div>
+              <input type="checkbox" name="display-condition" id="display-condition-" value="">
+              <label for="display-condition-">Not stipulated</label>
+            </div>
+            <div>
+              <input type="checkbox" name="display-condition" id="display-condition-dark" value="dark">
+              <label for="display-condition-dark">Dark Background</label>
+            </div>
+          </fieldset>
+        </div>
+        
+        </aside>
+            
+        <!--   This is our chatbox / chatbox sender-->
+   
+        <section class="chatbox">
+            
+                    <!--   This is the outline for messages-->
+
+            <div class = "message-display">
+                <div class = "message">
+                    <div class="message-content">
+                        <div class="message-profile-picture">
+                            <img src="https://howfix.net/wp-content/uploads/2018/02/sIaRmaFSMfrw8QJIBAa8mA-article.png">
+                        </div>
+                        <div class="message-info-holder">
+                            <p id ="post-text">Empty - placeholder</p>
+                            <p id = "post-upvotes">0</p>
+                            <button class ="upvote"><i class="far fa-hand-point-up"></i></button>
+                        </div>
+                    </div> 
+                </div>
+                     <!--   This is the chatbox sender-->
+
+                <div class="chatbox-sender">
+                    <label for="chatbox-message" class="chatbox-label-text">Send Messages</label>
+                    <div class="chatbox-label-div">
+                        <input type="text" name="chatbox-message" id="chatbox-id" class="chatbox-class">
+                    </div>
+                    <div>
+                        <button class ="send-message"></button>    
+                    </div>
+                </div>
+            </div>
+                
+        </section>
+            
+            
+    </main>
+
+  </body> 
+</html>
