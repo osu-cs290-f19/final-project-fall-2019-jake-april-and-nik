@@ -17,14 +17,16 @@
   <body>
     <!--   This is our banner or the top of the webpage -->
       <div class = "banner">
-            <h1 class= "site-name">Benny Chan</h1>
+          <div class="site-name">
+              <h1 class= "site-name-text">Benny Chan</h1>
+          </div>
       </div>
       
     <!--   This is our overall content for the page -->
       
     <main class="site-content">
         
-        <div class="site-user-info">
+        <div class="site-user-info, center">
           <label for="site-username-btn" class="username-static-label">Username:</label>
           <label for="site-username-btn" class="username-dynamic-label">Anon</label>
           <div class="site-username-btn">
@@ -153,8 +155,10 @@
                         </div>
                         <div class="message-info-holder">
                             <p id ="post-text">Empty - placeholder</p>
-                            <p id = "post-upvotes">0</p>
-                            <button class ="upvote"><i class="far fa-hand-point-up"></i></button>
+                            <div class ="upvote">
+                                <p id = "post-upvotes">0</p>
+                                <button class ="upvote"><i class="far fa-hand-point-up"></i></button>
+                            </div>
                         </div>
                     </div> 
                 </div>
