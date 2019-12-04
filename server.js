@@ -12,6 +12,8 @@ var idx = fs.readFileSync('./public_html/index.html', 'utf-8');
 console.log("Reading index");
 var styl = fs.readFileSync('./public_html/stylesheet.css', 'utf-8');
 console.log("Reading css");
+var js = fs.readFileSync('./public_html/index.js', 'utf-8');
+console.log("Reading js");
 
 
 
@@ -26,6 +28,10 @@ var server = http.createServer(function(req, res){
     }else if(req.url === '/stylesheet.css'){
         res.writeHead(200, {'Content-Type': 'text/css'});
         res.write(styl);
+        res.end();    
+    }else if(req.url === '/index.js'){
+        res.writeHead(200, {'Content-Type': 'text/js'});
+        res.write(js);
         res.end();    
     }
 });
