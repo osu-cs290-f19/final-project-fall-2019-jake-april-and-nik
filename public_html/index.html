@@ -14,7 +14,7 @@
       
   </head>
     
-  <body>
+  <body id="body">
       
       
     <!--   This is our banner or the top of the webpage -->
@@ -24,20 +24,30 @@
           </div>
       </div>
       
-      <div class="menu">
-        <div class ="bar-menu" onClick="onClickMenu()">
-          <div class ="bar" id="bar1"></div>
-          <div class ="bar" id="bar2"></div>
-          <div class ="bar" id="bar3"></div>   
-          </div>
+      <div id="menu-bar">
+        <div id="menu" onclick="onClickMenu()">
+          <div id="bar1" class="bar"></div>
+          <div id="bar2" class="bar"></div>
+          <div id="bar3" class="bar"></div>
+        </div>
+        <ul class="nav" id="nav">
+          <li><a>Options</a></li>
+          <li><a onClick="darkMode()">Dark Mode</a></li>
+          <li><a>?</a></li>
+          <li><a>?</a></li>
+          <li><a>?</a></li>
+        </ul>
       </div>
+
+      <div class="menu-bg" id="menu-bg"></div>
+
     <!--   This is our overall content for the page -->
       
     <main class="site-content">
         
-        <div class="site-user-info, center">
-          <label for="site-username-btn" class="username-static-label">Username:</label>
-          <label for="site-username-btn" class="username-dynamic-label">Anon</label>
+        <div class="site-user-info, center" id= "site-user-info">
+          <label for="site-username-btn" class="username-static-label" id="dark-mode-user">Username:</label>
+          <label for="site-username-btn" class="username-dynamic-label" id="dark-mode-user-name">Anon</label>
           <div class="site-username-btn">
               <button id="username-btn" class="change-username-btn">Change Username</button>          
             </div>
@@ -51,7 +61,7 @@
             
             <!--   This is our featured posts-->
             
-        <h3>Featured Posts</h3>
+        <a>Featured Posts</a>
         <div class="top-post-1" up-votes ="0">
             <h4>1. </h4>
           <div class="post">
@@ -96,7 +106,7 @@
             
             <!--   This is our chat rooms -->
       
-        <h3>Chat rooms</h3>
+        <a>Chat rooms</a>
 
         <div class="site-chat-rooms">
           <div class="filter-input-element">
@@ -108,7 +118,7 @@
           </div>
         </div>
             
-        <h3>Statistics</h3>
+        <a>Statistics</a>
             <div class ="site-statistics">
                 <h4 class ="site-statisitics-display">Online</h4>
                 <p class ="site-statistics-online">0</p>
@@ -121,7 +131,7 @@
             
             <!--   This is our display options -->
             
-        <h3>Display Options</h3>
+        <a>Display Options</a>
         <div class="site-display-options">
           <fieldset id="display-conditions" class="display-fields">
             <legend>Page Styles</legend>
