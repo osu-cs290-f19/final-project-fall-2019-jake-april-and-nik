@@ -10,5 +10,6 @@ function darkMode(){
     document.getElementById("site-user-info").classList.toggle("dark_mode_name");
     document.getElementById("dark-mode-user").classList.toggle("dark_mode_label");
     document.getElementById("dark-mode-user-name").classList.toggle("dark_mode_label");
+    document.getElementById("dark-mode-send").classList.toggle("dark_mode_label");
 
 }
