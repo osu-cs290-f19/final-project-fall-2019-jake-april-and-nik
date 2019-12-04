@@ -9,12 +9,14 @@
     <!-- This 3rd-party stylesheet incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
     <link rel="stylesheet.css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet.css">
-      
+    <script src="/index.js"></script>
     <!--   <link rel="stylesheet" href="style.css"> -->
       
   </head>
     
   <body>
+      
+      
     <!--   This is our banner or the top of the webpage -->
       <div class = "banner">
           <div class="site-name">
@@ -22,6 +24,13 @@
           </div>
       </div>
       
+      <div class="menu">
+        <div class ="bar-menu" onClick="onClickMenu()">
+          <div class ="bar" id="bar1"></div>
+          <div class ="bar" id="bar2"></div>
+          <div class ="bar" id="bar3"></div>   
+          </div>
+      </div>
     <!--   This is our overall content for the page -->
       
     <main class="site-content">
@@ -149,16 +158,14 @@
 
             <div class = "message-display">
                 <div class = "message">
+                    
                     <div class="message-content">
                         <div class="message-profile-picture">
+                            <p class="username">Anon</p>
                             <img src="https://howfix.net/wp-content/uploads/2018/02/sIaRmaFSMfrw8QJIBAa8mA-article.png">
                         </div>
                         <div class="message-info-holder">
-                            <p id ="post-text">Empty - placeholder</p>
-                            <div class ="upvote">
-                                <p id = "post-upvotes">0</p>
-                                <button class ="upvote"><i class="far fa-hand-point-up"></i></button>
-                            </div>
+                            <p id ="post-text">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</p>
                         </div>
                     </div> 
                 </div>
