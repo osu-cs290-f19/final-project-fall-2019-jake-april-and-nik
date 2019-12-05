@@ -175,7 +175,11 @@ body {
  float: left;
 }
 #post-text{
-    float:left;
+   width: 100%; 
+   min-width: 300px;
+   word-break: break-all; 
+   word-wrap: break-word;
+   float:left;
 }
 .upvote{
     float:left;
