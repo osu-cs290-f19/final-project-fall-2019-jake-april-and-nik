@@ -9,7 +9,8 @@
     <!-- This 3rd-party stylesheet incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
     <link rel="stylesheet.css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet.css">
-    <script src="/index.js"></script>
+    <script src="/index.js" defer></script>
+
     <!--   <link rel="stylesheet" href="style.css"> -->
       
   </head>
@@ -162,11 +163,11 @@
             
         <!--   This is our chatbox / chatbox sender-->
    
-        <section class="chatbox">
+        <section class="chatbox" id="chatbox">
             
                     <!--   This is the outline for messages-->
 
-            <div class = "message-display">
+            <div class = "message-display" id="message-display">
                 <div class = "message">
                     
                     <div class="message-content">
@@ -187,7 +188,7 @@
                         <input type="text" name="chatbox-message" id="chatbox-id" class="chatbox-class">
                     </div>
                     <div>
-                        <button class ="send-message"></button>    
+                        <button id="send" class ="send-message" ></button>    
                     </div>
                 </div>
             </div>
