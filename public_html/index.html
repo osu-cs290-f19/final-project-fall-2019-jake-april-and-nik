@@ -9,6 +9,7 @@
     <!-- This 3rd-party stylesheet incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
     <link rel="stylesheet.css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet.css">
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script src="/index.js" defer></script>
 
     <!--   <link rel="stylesheet" href="style.css"> -->
@@ -50,7 +51,7 @@
           <label for="site-username-btn" class="username-static-label" id="dark-mode-user">Username:</label>
           <label for="site-username-btn" class="username-dynamic-label" id="dark-mode-user-name">Anon</label>
           <div class="site-username-btn">
-              <button id="username-btn" class="change-username-btn">Change Username</button>          
+              <button id="username-btn" class="change-username-btn" onclick="onClickName()">Change Username</button>          
             </div>
         </div>
         
@@ -182,7 +183,7 @@
                 </div>
                      <!--   This is the chatbox sender-->
 
-                <div class="chatbox-sender">
+                <form class="chatbox-sender">
                     <label for="chatbox-message" class="chatbox-label-text" id="dark-mode-send">Send Messages</label>
                     <div class="chatbox-label-div">
                         <input type="text" name="chatbox-message" id="chatbox-id" class="chatbox-class">
@@ -190,7 +191,7 @@
                     <div>
                         <button id="send" class ="send-message" ></button>    
                     </div>
-                </div>
+                  </form>
             </div>
                 
         </section>
