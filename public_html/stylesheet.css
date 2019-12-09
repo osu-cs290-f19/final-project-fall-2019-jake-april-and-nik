@@ -34,16 +34,14 @@ body {
 
 .site-image{
  width: auto;
- height: 14vh;
+ max-height: 14vh;
+ z-index: -1;
 }
 
 .site-name {
+    background-color: black;
   margin: auto;
-  width: 50%;
-  height:auto;
-  
   max-height: 15vh;
-  padding: 20px;    
 }
 
 .site-name-text{  
@@ -161,15 +159,21 @@ body {
 }
 
 .chatbox {
-  background-color: white;
+  
+  color: #ff8300;
+  background-color: rgb(80, 80, 80);
+  font-family: monospace;
+  font-size: 16pt;
   position: relative;
   min-width: 130px;
   margin: auto;
-  width: 50%;
-  height: 600px;
+  width: 75%;
+  height: 50vh;
   padding: 20px; 
   border: 2px black solid;
   box-shadow: 3px 5px 5px 1px rgba(0, 0, 0, 1);
+  overflow-y: scroll;
+  overflow-x: hidden;
 
 }
 
