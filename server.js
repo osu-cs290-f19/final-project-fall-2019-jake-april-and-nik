@@ -2,6 +2,7 @@ var fs = require('fs');
 var http = require('http');
 var PORT = 5000;
 const users = {};
+const pictures = {};
 
 const io = require('socket.io')(3000);
 io.on("connection", socket => {
@@ -9,8 +10,12 @@ io.on("connection", socket => {
         users[socket.id] = name;
         socket.broadcast.emit('user-connected', name);
     });
+    socket.on('profile', picture => {
+        pictures[socket.id] = picture;
+        socket.broadcast.emit('user picture', picture);
+    });
     socket.on('send-chat-message', message =>{
-        socket.broadcast.emit('chat-message', {message: message, name: users[socket.id]});
+        socket.broadcast.emit('chat-message', {message: message, name: users[socket.id], picture: pictures[socket.id]});
     })
 });
 

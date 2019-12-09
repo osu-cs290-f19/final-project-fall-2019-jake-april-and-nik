@@ -6,7 +6,9 @@ var postsContainer = document.getElementById("message-display");
 const socket = io('http://localhost:3000');
 const messageForm = document.getElementById("chatbox-sender");
 var name = document.getElementById("dark-mode-user-name").textContent;
+var picture ='https://icon-library.net/images/tumblr-avatar-icon/tumblr-avatar-icon-26.jpg';
 socket.emit('new-user', name);
+socket.emit('profile', picture);
 
 socket.on('chat-message', data =>{
     posts = document.getElementsByClassName("message");
@@ -14,7 +16,7 @@ socket.on('chat-message', data =>{
         posts[0].remove();
     }
     var name = document.getElementById("dark-mode-user-name").textContent;
-    insertNewPost(data.message, data.name);
+    insertNewPost(data.message, data.name, data.picture);
 });
 
 
@@ -36,7 +38,9 @@ function darkMode(){
 
 function onClickName(){
     document.getElementById("dark-mode-user-name").textContent = prompt("What do you want your name to be");
+    picture = prompt("Link for image");
     name = document.getElementById("dark-mode-user-name").textContent;
+    socket.emit('profile', picture);
     socket.emit('new-user', name);
 
 }
@@ -49,7 +53,7 @@ newPost.addEventListener('click', e => {
         if(posts.length === 4){
             posts[0].remove();
         }
-        insertNewPost(message, document.getElementById("dark-mode-user-name").textContent);
+        insertNewPost(message, document.getElementById("dark-mode-user-name").textContent, picture);
         socket.emit('send-chat-message', message);
         msgToSend.value = '';
         event.stopPropagation();
@@ -60,7 +64,7 @@ newPost.addEventListener('click', e => {
 
 /// INSERT NEW MESSAGE BASIC NEEDS TEMPLATE
 
-function insertNewPost(m, n) {
+function insertNewPost(m, n, p) {
   var contents = document.createElement('div');
   contents.classList.add("message");
     
@@ -78,7 +82,7 @@ function insertNewPost(m, n) {
   postPhotoImg.appendChild(name);
     
   var image = document.createElement('img');
-  image.src="https://howfix.net/wp-content/uploads/2018/02/sIaRmaFSMfrw8QJIBAa8mA-article.png";
+  image.src=p;
   postPhotoImg.appendChild(image);
 
   var info = document.createElement('div');
