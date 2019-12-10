@@ -12,7 +12,7 @@ socket.emit('profile', picture);
 
 socket.on('chat-message', data =>{
     posts = document.getElementsByClassName("message");
-    if(posts.length === 4){
+    if(posts.length === 100){
         posts[0].remove();
     }
     var name = document.getElementById("dark-mode-user-name").textContent;
@@ -54,7 +54,7 @@ newPost.addEventListener('click', e => {
     const message = msgToSend.value;
     posts = document.getElementsByClassName("message");
     if(msgToSend.value.length < 201 && msgToSend.value.length > 0){
-        if(posts.length === 4){
+        if(posts.length === 100){
             posts[0].remove();
         }
         playSound();
