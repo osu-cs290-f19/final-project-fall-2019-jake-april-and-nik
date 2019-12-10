@@ -1,6 +1,6 @@
 body {
   margin: 0;
-    background-color: gray;
+    background-color: coral;
 }
 
 .dark_mode{
@@ -16,11 +16,11 @@ body {
 
 
 .banner{
-  background-color: #ff8300;
+  background-color: #666699;
   display: flex;
   align-items: center;
   position: relative;
-  box-shadow: 0px 0px 10px 10px black;
+  border: 2px green solid;
   height: 15vh;
 }
 .center{
@@ -29,24 +29,20 @@ body {
   width: 10%;
   height: 50%;
   padding: 20px; 
-  /*border: 2px black dashed;*/
-}
-
-.site-image{
- width: auto;
- max-height: 14vh;
- z-index: -1;
+  border: 2px black dashed;
 }
 
 .site-name {
-    background-color: black;
   margin: auto;
-  max-height: 15vh;
+  width: 50%;
+  height:4vw;
+  border: 5px orange solid;
+  padding: 20px;    
 }
 
 .site-name-text{  
   text-align: center;
-  font-size: 20pt;
+  font-size: 4vw;
   margin: auto;
 }
 
@@ -126,22 +122,6 @@ body {
 	display: block;
 }
 
-.site-user-info{
- 
-}
-
-.change-username-btn{
- color: black;
- background-color: #ff8300;
- font-size: 14pt;
- font-family: monospace;
- border: 0px black solid;
- box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 1);
-}
-
-.change-username-btn:hover{
-     box-shadow: 3px 5px 5px 1px rgba(0, 0, 0, 1);
-}
 
 .site-options {
   display:none;
@@ -159,22 +139,14 @@ body {
 }
 
 .chatbox {
-  
-  color: #ff8300;
-  background-color: rgb(80, 80, 80);
-  font-family: monospace;
-  font-size: 16pt;
+  background-color: white;
   position: relative;
   min-width: 130px;
   margin: auto;
-  width: 75%;
-  height: 50vh;
+  width: 50%;
+  height: 600px;
   padding: 20px; 
   border: 2px black solid;
-  box-shadow: 3px 5px 5px 1px rgba(0, 0, 0, 1);
-  overflow-y: scroll;
-  overflow-x: hidden;
-
 }
 
 .message {
@@ -182,7 +154,7 @@ body {
     flex-wrap: wrap;
     height: 100%;
     overflow:hidden;
-    border-bottom: 5px #ff8300 solid;
+    border-bottom: 5px purple solid;
 }
 
 .message-info-holder{
