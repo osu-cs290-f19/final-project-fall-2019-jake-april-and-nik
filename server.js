@@ -31,6 +31,7 @@ var styl = fs.readFileSync('./public_html/stylesheet.css', 'utf-8');
 console.log("Reading css");
 var js = fs.readFileSync('./public_html/index.js', 'utf-8');
 console.log("Reading js");
+var img = fs.readFileSync('./public_html/benny_chan_neon.png');
 
 var server = http.createServer(function(req, res){
     console.log('request was made: ' + req.url);
@@ -47,6 +48,10 @@ var server = http.createServer(function(req, res){
         res.writeHead(200, {'Content-Type': 'text/js'});
         res.write(js);
         res.end();    
+    }else if(req.url === '/benny_chan_neon.png'){ 
+        res.writeHead(200);
+        res.write(img);
+        res.end(); 
     }
 });
 
