@@ -19,6 +19,10 @@ socket.on('chat-message', data =>{
     insertNewPost(data.message, data.name, data.picture);
 });
 
+function playSound() {
+    var sound = document.getElementById("audio");
+    sound.play();
+}
 
 function onClickMenu(){
 	document.getElementById("menu").classList.toggle("change");
@@ -53,6 +57,7 @@ newPost.addEventListener('click', e => {
         if(posts.length === 4){
             posts[0].remove();
         }
+        playSound();
         insertNewPost(message, document.getElementById("dark-mode-user-name").textContent, picture);
         socket.emit('send-chat-message', message);
         msgToSend.value = '';

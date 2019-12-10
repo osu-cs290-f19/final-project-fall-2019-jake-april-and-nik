@@ -17,7 +17,9 @@
   </head>
     
   <body id="body">
-      
+
+      <audio id="audio" src="https://www.soundjay.com/button/sounds/button-16.mp3" autoplay="false" ></audio>
+
       
     <!--   This is our banner or the top of the webpage -->
       <div class = "banner">
@@ -55,113 +57,7 @@
             </div>
         </div>
         
-            <!--   This is our options fields-->
-
-        <aside class= "site-options">
-            
-        <h2>Site Options</h2>
-            
-            <!--   This is our featured posts-->
-            
-        <a>Featured Posts</a>
-        <div class="top-post-1" up-votes ="0">
-            <h4>1. </h4>
-          <div class="post">
-            <div class="post-data">
-                <img id = "post-one-profile" src="https://howfix.net/wp-content/uploads/2018/02/sIaRmaFSMfrw8QJIBAa8mA-article.png">
-                <blockquote class = "post-value">Put post data here</blockquote>
-                <div class = "upvotes-featured">
-                    <p id = "upvotes-featured-one">0</p>    
-                    <button class ="upvote"><i class="far fa-hand-point-up"></i></button>               
-                </div>
-            </div>
-          </div>
-        </div>
-            
-        <div class="top-post-2" up-votes ="0">
-            <h4>2. </h4>
-          <div class="post">
-            <div class="post-data">
-                <img id = "post-two-profile" src="https://howfix.net/wp-content/uploads/2018/02/sIaRmaFSMfrw8QJIBAa8mA-article.png">
-                <blockquote class = "post-value">Put post data here</blockquote>
-                <div class = "upvotes-featured">
-                    <p id = "upvotes-featured-two">0</p>
-                    <button class ="upvote"><i class="far fa-hand-point-up"></i></button>               
-                </div>
-            </div>
-        </div>
-        </div>
-            
-        <div class="top-post-3" up-votes ="0">
-            <h4>3. </h4>
-          <div class="post">
-            <div class="post-data">
-                <img id = "post-three-profile" src="https://howfix.net/wp-content/uploads/2018/02/sIaRmaFSMfrw8QJIBAa8mA-article.png">
-                <blockquote class = "post-value">Put post data here</blockquote>
-                <div class = "upvotes-featured">
-                    <p id = "upvotes-featured-three">0</p>  
-                    <button class ="upvote"><i class="far fa-hand-point-up"></i></button>               
-                </div>
-            </div>
-        </div>
-            </div>
-            
-            <!--   This is our chat rooms -->
-      
-        <a>Chat rooms</a>
-
-        <div class="site-chat-rooms">
-          <div class="filter-input-element">
-            <select id="chat-room-options" class="chat-room-input" name="chat-rooms">
-              <option selected value>General</option>
-              <option>Random</option>
-              <option>Misc</option>
-            </select>
-          </div>
-        </div>
-            
-        <a>Statistics</a>
-            <div class ="site-statistics">
-                <h4 class ="site-statisitics-display">Online</h4>
-                <p class ="site-statistics-online">0</p>
-                <h4 class ="site-statisitics-display">Total Visitors</h4>
-                <p class ="site-statistics-totalvisit">0</p>
-                <h4 class ="site-statisitics-display">Total Posts Made</h4>
-                <p class ="site-statistics-totalposts">0</p>            
-            
-            </div>
-            
-            <!--   This is our display options -->
-            
-        <a>Display Options</a>
-        <div class="site-display-options">
-          <fieldset id="display-conditions" class="display-fields">
-            <legend>Page Styles</legend>
-            <div>
-              <input type="checkbox" name="display-condition" id="display-condition-" value="">
-              <label for="display-condition-">Not stipulated</label>
-            </div>
-            <div>
-              <input type="checkbox" name="display-condition" id="display-condition-" value="">
-              <label for="display-condition-">Not stipulated</label>
-            </div>
-            <div>
-              <input type="checkbox" name="display-condition" id="display-condition-" value="">
-              <label for="display-condition-">Not stipulated</label>
-            </div>
-            <div>
-              <input type="checkbox" name="display-condition" id="display-condition-" value="">
-              <label for="display-condition-">Not stipulated</label>
-            </div>
-            <div>
-              <input type="checkbox" name="display-condition" id="display-condition-dark" value="dark">
-              <label for="display-condition-dark">Dark Background</label>
-            </div>
-          </fieldset>
-        </div>
-        
-        </aside>
-            
+  
         <!--   This is our chatbox / chatbox sender-->
    
         <section class="chatbox" id="chatbox">
@@ -189,7 +85,7 @@
                         <input type="text" name="chatbox-message" id="chatbox-id" class="chatbox-class">
                     </div>
                     <div>
-                        <button id="send" class ="send-message" ></button>    
+                        <button id="send" class ="send-message" onclick="playSound()" ></button>    
                     </div>
                   </form>
             </div>
