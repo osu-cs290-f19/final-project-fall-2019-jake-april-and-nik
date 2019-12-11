@@ -1,4 +1,5 @@
 // Requiring express and socket
+var path = require('path');
 const express = require('express');
 const app = express();
 const server = require('http').Server(app);
@@ -15,10 +16,12 @@ const rooms = {};
 
 // rendering index 
 app.get('/', (req, res) =>{
-
+    console.log(req.url);
     res.render('index', {rooms: rooms});
 
 });
+
+
 
 // posting each room when being created
 app.post('/room', (req, res) =>{
@@ -59,4 +62,11 @@ io.on("connection", socket => {
     socket.on('send-chat-message', (room, message) =>{
         socket.to(room).broadcast.emit('chat-message', {message: message, name: rooms[room].users[socket.id], picture: rooms[room].pictures[socket.id]});
     })
+});
+
+//need something to send other regular files.
+//get everything else
+app.get('*', function (req, res) {
+    console.log(req.url);
+  res.status(200).sendFile(path.join(__dirname, 'public', req.url));
 });

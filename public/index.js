@@ -24,14 +24,10 @@ var data = {
 // Socket io ---------------------------------
 const socket = io('http://localhost:3000');
 const messageForm = document.getElementById("chatbox-sender");
-
 // Sending data ---------------------------------
-
 socket.emit('new-user', roomName, name);
 socket.emit('profile', roomName, picture);
-
 // Using data object ---------------------------------
-
 socket.on('chat-message', data =>{
     posts = document.getElementsByClassName("message");
     if(posts.length === 100){
@@ -40,9 +36,7 @@ socket.on('chat-message', data =>{
     var name = document.getElementById("dark-mode-user-name").textContent;
     insertNewPost(data.message, data.name, data.picture, col);
 });
-
 socket.on('room-created', room=>{
-
     const roomElement = document.createElement('div');
     roomElement.innerText = room;
     const link = document.createElement('a');
@@ -50,11 +44,8 @@ socket.on('room-created', room=>{
     link.innerText = 'Join';
     document.getElementById('room-container').append(roomElement);
     document.getElementById('room-container').append(link);
-
 });
-
 // Functions ---------------------------------
-
 // plays message notify sound
 function playSound() {
     var sound = document.getElementById("audio");
@@ -62,7 +53,6 @@ function playSound() {
         sound.play();
     
 }
-
 // mute sound, toggles and changes text content
 function muteSound() {
     var s = document.getElementById('sound');
@@ -75,14 +65,12 @@ function muteSound() {
         s.textContent = 'Toggle Sound'
     }
 }
-
 // animation for hamburger menu/transition
 function onClickMenu(){
 	document.getElementById("menu").classList.toggle("change");
 	document.getElementById("nav").classList.toggle("change");
 	document.getElementById("menu-bg").classList.toggle("change-bg");
 }
-
 // dark mode switch
 function darkMode(){
     document.getElementById("body").classList.toggle("dark_mode");
@@ -91,13 +79,11 @@ function darkMode(){
     document.getElementById("dark-mode-user-name").classList.toggle("dark_mode_label");
     document.getElementById("dark-mode-send").classList.toggle("dark_mode_label");
 }
-
 // empties modal
 function clearModal(){
     document.getElementById('username-input').value = '';
     document.getElementById('profile-photo-url').value = '';
 }
-
 // closes modal
 function closeModal() {
     var modalBackground = document.getElementById('modal-background');
@@ -105,25 +91,20 @@ function closeModal() {
     modalBackground.style.display = 'none';
     modalContent.style.display = 'none';
 }
-
 // cancels modal
 function cancelModal() {
     document.getElementById('username-input').value = 'Anon';
     document.getElementById('profile-photo-url').value = 'https://images-na.ssl-images-amazon.com/images/I/314e1jgfh0L.jpg';
     closeModal();
 }
-
 // display modal
 function ShowModal() {
     var modalBackground = document.getElementById('modal-background');
     var modalContent = document.getElementById('modal-content');
-
     clearModal();
-
     modalBackground.style.display = 'block';
     modalContent.style.display = 'block';
 }
-
 // Gets data from modal
 function profileInputHandle(event) {
      
@@ -153,13 +134,11 @@ function onClickName() {
     ShowModal();
     
 }
-
 // gives a random color to the user
 function changeColor(){
     var i = Math.floor(Math.random() * 8);
     col = c[i];
 }
-
 // creating a new post, making sure everything is valid and popping data off the top if too many posts
 newPost.addEventListener('click', e => {
     e.preventDefault();
@@ -176,11 +155,8 @@ newPost.addEventListener('click', e => {
         event.stopPropagation();
     }else
         alert("Messages must be 200 or less characters and at least 1 character");
-
 });
-
 /// Standard insert html
-
 function insertNewPost(m, n, p, c) {
   var contents = document.createElement('div');
   contents.classList.add("message");
@@ -201,7 +177,6 @@ function insertNewPost(m, n, p, c) {
   var image = document.createElement('img');
   image.src=p;
   postPhotoImg.appendChild(image);
-
   var info = document.createElement('div');
   info.classList.add("message-info-holder");
   content.appendChild(info);
@@ -211,6 +186,6 @@ function insertNewPost(m, n, p, c) {
   msg.textContent = m;
   msg.style.color = c;
   info.appendChild(msg);
-    
+
   postsContainer.appendChild(contents);
-}
+} 
