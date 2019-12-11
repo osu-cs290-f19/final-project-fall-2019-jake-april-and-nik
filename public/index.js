@@ -7,8 +7,8 @@ const socket = io('http://localhost:3000');
 const messageForm = document.getElementById("chatbox-sender");
 var name = document.getElementById("dark-mode-user-name").textContent;
 var picture ='https://icon-library.net/images/tumblr-avatar-icon/tumblr-avatar-icon-26.jpg';
-socket.emit('new-user', name);
-socket.emit('profile', picture);
+socket.emit('new-user', roomName, name);
+socket.emit('profile', roomName, picture);
 
 socket.on('chat-message', data =>{
     posts = document.getElementsByClassName("message");
@@ -17,6 +17,18 @@ socket.on('chat-message', data =>{
     }
     var name = document.getElementById("dark-mode-user-name").textContent;
     insertNewPost(data.message, data.name, data.picture);
+});
+
+socket.on('room-created', room=>{
+
+    const roomElement = document.createElement('div');
+    roomElement.innerText = room;
+    const link = document.createElement('a');
+    link.href = '/${room}';
+    link.innerText = 'Join';
+    document.getElementById('room-container').append(roomElement);
+    document.getElementById('room-container').append(link);
+
 });
 
 function playSound() {
@@ -74,8 +86,8 @@ function profileInputHandle(event) {
     name = document.getElementById("dark-mode-user-name").textContent;
     console.log('username ==', name);
     picture = document.getElementById('profile-photo-url').value || document.getElementById('profile-photo-file').value;
-    socket.emit('profile', picture);
-    socket.emit('new-user', name);
+    socket.emit('profile', roomName, picture);
+    socket.emit('new-user', roomName, name);
     clearModal();
     closeModal();
 }
@@ -106,7 +118,7 @@ newPost.addEventListener('click', e => {
         }
         playSound();
         insertNewPost(message, document.getElementById("dark-mode-user-name").textContent, picture);
-        socket.emit('send-chat-message', message);
+        socket.emit('send-chat-message', roomName, message);
         msgToSend.value = '';
         event.stopPropagation();
     }else

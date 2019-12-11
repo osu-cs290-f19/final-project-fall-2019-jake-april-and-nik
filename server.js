@@ -1,62 +1,54 @@
-var fs = require('fs');
-var http = require('http');
-var PORT = 5000;
-const users = {};
-const pictures = {};
+const express = require('express');
+const app = express();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 
-const io = require('socket.io')(3000);
+app.set('views', './views');
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true}));
+
+const rooms = {};
+
+app.get('/', (req, res) =>{
+
+    res.render('index', {rooms: rooms});
+
+});
+
+app.post('/room', (req, res) =>{
+
+    if(rooms[req.body.room] != null){
+        return res.redirect('/');
+    }
+    rooms[req.body.room] = { users: {}, pictures: {}};
+    res.redirect(req.body.room);
+
+    io.emit('room-created', req.body.room);
+
+});
+
+app.get('/:room', (req, res) =>{
+    if(rooms[req.params.room] == null){
+        return res.redirect('/');
+    }
+    res.render('room', { roomName: req.params.room});
+
+});
+
+server.listen(3000);
+
 io.on("connection", socket => {
-    socket.on('new-user', name => {
-        users[socket.id] = name;
-        socket.broadcast.emit('user-connected', name);
+    socket.on('new-user', (room, name) => {
+        socket.join(room);
+        rooms[room].users[socket.id] = name;
+        socket.to(room).broadcast.emit('user-connected', name);
     });
-    socket.on('profile', picture => {
-        pictures[socket.id] = picture;
-        socket.broadcast.emit('user picture', picture);
+    socket.on('profile', (room, picture) => {
+        rooms[room].pictures[socket.id] = picture;
+        socket.to(room).broadcast.emit('user picture', picture);
     });
-    socket.on('send-chat-message', message =>{
-        socket.broadcast.emit('chat-message', {message: message, name: users[socket.id], picture: pictures[socket.id]});
+    socket.on('send-chat-message', (room, message) =>{
+        socket.to(room).broadcast.emit('chat-message', {message: message, name: rooms[room].users[socket.id], picture: rooms[room].pictures[socket.id]});
     })
 });
-
-if(process.env.PORT != null){
-    PORT = process.env.PORT;
-}else{
-    PORT = 5000;
-}
-
-var idx = fs.readFileSync('./public_html/index.html', 'utf-8');
-console.log("Reading index");
-var styl = fs.readFileSync('./public_html/stylesheet.css', 'utf-8');
-console.log("Reading css");
-var js = fs.readFileSync('./public_html/index.js', 'utf-8');
-console.log("Reading js");
-var img = fs.readFileSync('./public_html/benny_chan_neon.png');
-
-var server = http.createServer(function(req, res){
-    console.log('request was made: ' + req.url);
-    if(req.url  === '/index.html' || req.url === '/' ){
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write(idx);
-        res.end();
-        //fs.createReadStream(__dirname + '/public/index.html').pipe(res);
-    }else if(req.url === '/stylesheet.css'){
-        res.writeHead(200, {'Content-Type': 'text/css'});
-        res.write(styl);
-        res.end();    
-    }else if(req.url === '/index.js'){
-        res.writeHead(200, {'Content-Type': 'text/js'});
-        res.write(js);
-        res.end();    
-    }else if(req.url === '/benny_chan_neon.png'){ 
-        res.writeHead(200);
-        res.write(img);
-        res.end(); 
-    }
-});
-
-server.listen(PORT, '127.0.0.1');
-
-
-
-console.log('listening to ', PORT);
