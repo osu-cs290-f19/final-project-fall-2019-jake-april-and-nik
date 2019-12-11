@@ -70,10 +70,10 @@ function ShowModal() {
 
 function profileInputHandle(event) {
      
-    document.getElementById("dark-mode-user-name").textContent = document.getElementById('profile-photo-url').value;
+    document.getElementById("dark-mode-user-name").textContent = document.getElementById('username-input').value;
     name = document.getElementById("dark-mode-user-name").textContent;
     console.log('username ==', name);
-    picture = document.getElementById('username-input');
+    picture = document.getElementById('profile-photo-url').value || document.getElementById('profile-photo-file').value;
     socket.emit('profile', picture);
     socket.emit('new-user', name);
     clearModal();
