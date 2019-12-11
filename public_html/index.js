@@ -31,22 +31,69 @@ function onClickMenu(){
 }
 
 function darkMode(){
-
     document.getElementById("body").classList.toggle("dark_mode");
     document.getElementById("site-user-info").classList.toggle("dark_mode_name");
     document.getElementById("dark-mode-user").classList.toggle("dark_mode_label");
     document.getElementById("dark-mode-user-name").classList.toggle("dark_mode_label");
     document.getElementById("dark-mode-send").classList.toggle("dark_mode_label");
-    
 }
 
-function onClickName(){
+function clearModal(){
+    document.getElementById('username-input').value = '';
+    document.getElementById('profile-photo-url').value = '';
+}
+
+
+function closeModal() {
+    var modalBackground = document.getElementById('modal-background');
+    var modalContent = document.getElementById('modal-content');
+    modalBackground.style.display = 'none';
+    modalContent.style.display = 'none';
+}
+
+
+function cancelModal() {
+    document.getElementById('username-input').value = 'Anon';
+    document.getElementById('profile-photo-url').value = 'https://images-na.ssl-images-amazon.com/images/I/314e1jgfh0L.jpg';
+    closeModal();
+}
+
+function ShowModal() {
+    var modalBackground = document.getElementById('modal-background');
+    var modalContent = document.getElementById('modal-content');
+
+    clearModal();
+
+    modalBackground.style.display = 'block';
+    modalContent.style.display = 'block';
+}
+
+function profileInputHandle(event) {
+     
+    document.getElementById("dark-mode-user-name").textContent = document.getElementById('username-input').value;
+    name = document.getElementById("dark-mode-user-name").textContent;
+    console.log('username ==', name);
+    picture = document.getElementById('profile-photo-url').value || document.getElementById('profile-photo-file').value;
+    socket.emit('profile', picture);
+    socket.emit('new-user', name);
+    clearModal();
+    closeModal();
+}
+
+function onClickName() {
+    /*
     document.getElementById("dark-mode-user-name").textContent = prompt("What do you want your name to be");
     picture = prompt("Link for image");
     name = document.getElementById("dark-mode-user-name").textContent;
     socket.emit('profile', picture);
     socket.emit('new-user', name);
-
+    */
+    var closeModal = document.getElementById('close-modal');
+    var okProfile = document.getElementById('ok-profile');
+    okProfile.addEventListener('click', profileInputHandle);
+    closeModal.addEventListener('click', cancelModal);
+    ShowModal();
+    
 }
 
 newPost.addEventListener('click', e => {

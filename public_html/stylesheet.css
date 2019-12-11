@@ -32,10 +32,11 @@ body {
   /*border: 2px black dashed;*/
 }
 
-.site-image{
- width: auto;
- max-height: 14vh;
- z-index: -1;
+.site-image {
+    width: auto;
+    max-height: 14vh;
+    z-index: -1;
+    box-shadow: 0 0 9px orange, 0 0 11px orange;
 }
 
 .site-name {
@@ -280,3 +281,94 @@ body {
     height: 5vh;
     width: 5vw;
 }
+
+#modal-background{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color:dimgray;
+}
+#modal-content {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1010;
+    overflow: scroll;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-body{
+    width: auto;
+    max-width: 700px;
+    min-width: 400px;
+    min-height: 60px;
+    margin: 40px auto;
+    background-color:black;
+    border-radius: 15px;
+}
+
+
+.modal-header {
+    position: relative;
+    padding: 10px 20px;
+}
+
+    .modal-header h3 {
+        margin: 0;
+        font-size: 28px;
+        color: darkorange;
+        font-weight: bold;
+        text-shadow: 0 0 1px orange, 0 0 3px orange;
+        background-color:black;
+    }
+
+label {
+    font-weight:bold;
+    font-size:small;
+    color:darkorange;
+    position:inherit;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#close-modal {
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    font-size: 24px;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    color:red;
+}
+
+    #close-modal:hover {
+     font-weight:bolder;   
+    }
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 10px 20px 10px;
+}
+
+#ok-profile {
+    display: flex;
+    background-color: darkorange;
+    color: black;
+    font-weight: bold;
+    box-shadow: 3px 5px 5px 1px rgba(0, 0, 0, 1);
+}
+
+    #ok-profile:hover {
+        box-shadow: 5px 7px 7px 3px rgba(0, 0, 0, 1);
+    }

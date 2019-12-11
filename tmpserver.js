@@ -4,7 +4,7 @@ var http = require('http');
 var express = require('express');
 var app = express();
 
-var PORT = 5000;
+var PORT = process.env.PORT || 5000;
 const users = {};
 const pictures = {};
 
@@ -35,8 +35,6 @@ if(process.env.PORT != null){
 
 
 app.use(express.static('public'));
-
-
 /*
  * get the homepage.
  */
