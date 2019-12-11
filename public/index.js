@@ -1,14 +1,21 @@
+// Variables ---------------------------------
 var newPost = document.getElementById("send");
 var msgToSend = document.getElementById("chatbox-id");
 var posts = document.getElementsByClassName("message")
 var postsContainer = document.getElementById("message-display");
-
-const socket = io('http://localhost:3000');
-const messageForm = document.getElementById("chatbox-sender");
 var name = document.getElementById("dark-mode-user-name").textContent;
 var picture ='https://icon-library.net/images/tumblr-avatar-icon/tumblr-avatar-icon-26.jpg';
+
+// Socket io ---------------------------------
+const socket = io('http://localhost:3000');
+const messageForm = document.getElementById("chatbox-sender");
+
+// Sending data ---------------------------------
+
 socket.emit('new-user', roomName, name);
 socket.emit('profile', roomName, picture);
+
+// Using data object ---------------------------------
 
 socket.on('chat-message', data =>{
     posts = document.getElementsByClassName("message");
@@ -31,17 +38,22 @@ socket.on('room-created', room=>{
 
 });
 
+// Functions ---------------------------------
+
+// plays message notify sound
 function playSound() {
     var sound = document.getElementById("audio");
     sound.play();
 }
 
+// animation for hamburger menu/transition
 function onClickMenu(){
 	document.getElementById("menu").classList.toggle("change");
 	document.getElementById("nav").classList.toggle("change");
 	document.getElementById("menu-bg").classList.toggle("change-bg");
 }
 
+// dark mode switch
 function darkMode(){
     document.getElementById("body").classList.toggle("dark_mode");
     document.getElementById("site-user-info").classList.toggle("dark_mode_name");
@@ -50,12 +62,13 @@ function darkMode(){
     document.getElementById("dark-mode-send").classList.toggle("dark_mode_label");
 }
 
+// empties modal
 function clearModal(){
     document.getElementById('username-input').value = '';
     document.getElementById('profile-photo-url').value = '';
 }
 
-
+// closes modal
 function closeModal() {
     var modalBackground = document.getElementById('modal-background');
     var modalContent = document.getElementById('modal-content');
@@ -63,13 +76,14 @@ function closeModal() {
     modalContent.style.display = 'none';
 }
 
-
+// cancels modal
 function cancelModal() {
     document.getElementById('username-input').value = 'Anon';
     document.getElementById('profile-photo-url').value = 'https://images-na.ssl-images-amazon.com/images/I/314e1jgfh0L.jpg';
     closeModal();
 }
 
+// display modal
 function ShowModal() {
     var modalBackground = document.getElementById('modal-background');
     var modalContent = document.getElementById('modal-content');
@@ -80,6 +94,7 @@ function ShowModal() {
     modalContent.style.display = 'block';
 }
 
+// Gets data from modal
 function profileInputHandle(event) {
      
     document.getElementById("dark-mode-user-name").textContent = document.getElementById('username-input').value;
@@ -92,6 +107,7 @@ function profileInputHandle(event) {
     closeModal();
 }
 
+// runs event when clicking 'Change Username'
 function onClickName() {
     /*
     document.getElementById("dark-mode-user-name").textContent = prompt("What do you want your name to be");
@@ -108,6 +124,7 @@ function onClickName() {
     
 }
 
+// creating a new post, making sure everything is valid and popping data off the top if too many posts
 newPost.addEventListener('click', e => {
     e.preventDefault();
     const message = msgToSend.value;
@@ -126,7 +143,7 @@ newPost.addEventListener('click', e => {
 
 });
 
-/// INSERT NEW MESSAGE BASIC NEEDS TEMPLATE
+/// Standard insert html
 
 function insertNewPost(m, n, p) {
   var contents = document.createElement('div');
