@@ -50,6 +50,7 @@ function playSound() {
     
 }
 
+// mute sound, toggles and changes text content
 function muteSound() {
     var s = document.getElementById('sound');
     if(off === '1'){

@@ -15,29 +15,48 @@
     <style>
         #room-container{
             border-radius: 25px;
+            box-shadow: 0px 0px 10px 10px black;
             background: white;
             padding: 20px;
             width: 400px;
             height: 650px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        #element{
+            height: 20px;
+            padding: 5px;
+            border: black 1px solid;
+            text-align: center;
+        }
+        h2{
+            height: 20px;
+            padding: 5px;
+            box-shadow: 0px 0px 10px 10px #ff8300;
+            text-align: center;
+        }
+        #e{
+            width: 40px;
+            margin:auto;
+            padding: 2px;
+            display:block;
+            text-align:center
         }
     </style>
-    <!--   <link rel="stylesheet" href="style.css"> -->
   </head>
     
   <body id="body">
         <div class = "banner">
                 <div class="site-name">
-                <!--
-                    <h1 class= "site-name-text">Benny Chan</h1>
-                    -->
                     <img class="site-image" scr="/benny_chan_neon.png">
                 </div>
             </div>
 
         <div id ="room-container" class='center'>
+            <h2 id='element'>Chat Rooms</h2>
             <% Object.keys(rooms).forEach(room =>{ %>
-                <div> <%= room %></div>
-                <a href="/<%= room %>">Join</a>
+                <div id='element'> <%= room %> </div>
+                <a id='e' href="/<%= room %>">Join</a>
                 <% }) %>
         </div>
 
