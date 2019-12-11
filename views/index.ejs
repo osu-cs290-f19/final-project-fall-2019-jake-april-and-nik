@@ -55,14 +55,14 @@
         <div id ="room-container" class='center'>
             <h2 id='element'>Chat Rooms</h2>
             <% Object.keys(rooms).forEach(room =>{ %>
-                <div id='element'> <%= room %> </div>
-                <a id='e' href="/<%= room %>">Join</a>
+                <div id='element' class="room-element"> <%= room %> </div>
+                <a id='e' class="room-element" href="/<%= room %>">Join</a>
                 <% }) %>
         </div>
 
-    <form action="/room" method="POST" class='center'>
-        <input name="room" type="text" required>
-        <button type="submit">New Room</button>
+    <form id=room-form action="/room" method="POST" class='center'>
+        <input id="room-form-input" name="room" type="text" required>
+        <button id="room-form-button" type="submit">New Room</button>
     </form>
   </body>
 
