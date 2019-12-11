@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    
+  <head>
+      
+    <meta charset="utf-8">
+    <title>Final Project</title>
+
+    <!-- This 3rd-party stylesheet incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet.css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="/index.js" defer></script>
+    <link rel="stylesheet.css" href="stylesheet.css">
+    <style>
+        #room-container{
+            border-radius: 25px;
+            background: white;
+            padding: 20px;
+            width: 200px;
+            height: 150px;
+        }
+
+    </style>
+    <!--   <link rel="stylesheet" href="style.css"> -->
+  </head>
+    
+  <body id="body">
+        <div class = "banner">
+                <div class="site-name">
+                <!--
+                    <h1 class= "site-name-text">Benny Chan</h1>
+                    -->
+                    <img class="site-image" scr="/benny_chan_neon.png">
+                </div>
+            </div>
+
+        <div id ="room-container">
+            <% Object.keys(rooms).forEach(room =>{ %>
+                <div> <%= room %></div>
+                <a href="/<%= room %>">Join</a>
+                <% }) %>
+        </div>
+
+    <form action="/room" method="POST">
+        <input name="room" type="text" required>
+        <button type="submit">New Room</button>
+    </form>
+  </body>
+
+<html>

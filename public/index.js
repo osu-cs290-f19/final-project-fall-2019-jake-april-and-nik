@@ -7,8 +7,8 @@ const socket = io('http://localhost:3000');
 const messageForm = document.getElementById("chatbox-sender");
 var name = document.getElementById("dark-mode-user-name").textContent;
 var picture ='https://icon-library.net/images/tumblr-avatar-icon/tumblr-avatar-icon-26.jpg';
-socket.emit('new-user', name);
-socket.emit('profile', picture);
+socket.emit('new-user', roomName, name);
+socket.emit('profile', roomName, picture);
 
 socket.on('chat-message', data =>{
     posts = document.getElementsByClassName("message");
@@ -19,6 +19,17 @@ socket.on('chat-message', data =>{
     insertNewPost(data.message, data.name, data.picture);
 });
 
+socket.on('room-created', room=>{
+
+    const roomElement = document.createElement('div');
+    roomElement.innerText = room;
+    const link = document.createElement('a');
+    link.href = '/${room}';
+    link.innerText = 'Join';
+    document.getElementById('room-container').append(roomElement);
+    document.getElementById('room-container').append(link);
+
+});
 
 function onClickMenu(){
 	document.getElementById("menu").classList.toggle("change");
@@ -40,8 +51,8 @@ function onClickName(){
     document.getElementById("dark-mode-user-name").textContent = prompt("What do you want your name to be");
     picture = prompt("Link for image");
     name = document.getElementById("dark-mode-user-name").textContent;
-    socket.emit('profile', picture);
-    socket.emit('new-user', name);
+    socket.emit('profile', roomName, picture);
+    socket.emit('new-user', roomName, name);
 
 }
 
@@ -54,7 +65,7 @@ newPost.addEventListener('click', e => {
             posts[0].remove();
         }
         insertNewPost(message, document.getElementById("dark-mode-user-name").textContent, picture);
-        socket.emit('send-chat-message', message);
+        socket.emit('send-chat-message', roomName, message);
         msgToSend.value = '';
         event.stopPropagation();
     }else
