@@ -78,60 +78,52 @@ function darkMode(){
     document.getElementById("dark-mode-user-name").classList.toggle("dark_mode_label");
     document.getElementById("dark-mode-send").classList.toggle("dark_mode_label");
 }
-
-// empties modal
-function clearModal(){
-    document.getElementById('username-input').value = '';
-    document.getElementById('profile-photo-url').value = '';
-}
-
-// closes modal
+//hides modal
 function closeModal() {
     var modalBackground = document.getElementById('modal-background');
     var modalContent = document.getElementById('modal-content');
     modalBackground.style.display = 'none';
     modalContent.style.display = 'none';
 }
-
-// cancels modal
+//clears modal
+function clearModal() {
+    console.log('in clear modal');
+    document.getElementById('username-input').value = '';
+    document.getElementById('profile-photo-url').value = '';
+}
+//reverts username and image back
 function cancelModal() {
+    console.log('in cancel modal');
     document.getElementById('username-input').value = 'Anon';
-    document.getElementById('profile-photo-url').value = 'https://images-na.ssl-images-amazon.com/images/I/314e1jgfh0L.jpg';
+    document.getElementById('profile-photo-url').value = 'https://icon-library.net/images/tumblr-avatar-icon/tumblr-avatar-icon-26.jpg';
     closeModal();
 }
-
-// display modal
+//shows modal
 function ShowModal() {
+    console.log('in show modal');
+    clearModal();
     var modalBackground = document.getElementById('modal-background');
     var modalContent = document.getElementById('modal-content');
-
-    clearModal();
-
+    var cancel = document.getElementById('close-modal');
+    cancel.addEventListener('click', cancelModal);
     modalBackground.style.display = 'block';
     modalContent.style.display = 'block';
 }
-
-// Gets data from modal
+//handles input
 function profileInputHandle(event) {
-     
     document.getElementById("dark-mode-user-name").textContent = document.getElementById('username-input').value;
+    picture = document.getElementById('profile-photo-url').value;
     name = document.getElementById("dark-mode-user-name").textContent;
-    console.log('username ==', name);
-    picture = document.getElementById('profile-photo-url').value || document.getElementById('profile-photo-file').value;
-    socket.emit('profile', roomName, picture);
-    socket.emit('new-user', roomName, name);
-    clearModal();
+    socket.emit('profile', picture);
+    socket.emit('new-user', name);
+
     closeModal();
 }
-
-// runs event when clicking 'Change Username'
+//onClick handle
 function onClickName() {
-    var closeModal = document.getElementById('close-modal');
+    ShowModal();
     var okProfile = document.getElementById('ok-profile');
     okProfile.addEventListener('click', profileInputHandle);
-    closeModal.addEventListener('click', cancelModal);
-    ShowModal();
-    
 }
 
 // gives a random color to the user
