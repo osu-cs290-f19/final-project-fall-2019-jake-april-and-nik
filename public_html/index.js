@@ -40,13 +40,11 @@ function darkMode(){
     
 }
 
-function closeModal(event) {
-    console.log('in close modal');
+function closeModal() {
     var modalBackground = document.getElementById('modal-background');
     var modalContent = document.getElementById('modal-content');
     modalBackground.style.display = 'none';
-    modalContent.style.display = 'none';
-}
+    modalContent.style.display = 'none';}
 
 function ShowModal() {
     console.log('in show modal');
@@ -58,11 +56,14 @@ function ShowModal() {
 }
 
 function profileInputHandle(event) {
-    console.log('in profile input handle');
+
+    document.getElementById("dark-mode-user-name").textContent = document.getElementById('profile-photo-url');
+    name = document.getElementById("dark-mode-user-name").textContent;
     picture = document.getElementById('username-input');
-    name = document.getElementById('profile-photo-url');
     socket.emit('profile', picture);
     socket.emit('new-user', name);
+    closeModal();
+   
 }
 
 function onClickName() {
@@ -73,12 +74,12 @@ function onClickName() {
     socket.emit('profile', picture);
     socket.emit('new-user', name);
     */
-    console.log('in onclick name');
-    ShowModal();
-    var closeModal = document.getElementById('close-modal');
+    
     var okProfile = document.getElementById('ok-profile');
-    closeModal.addEventListener('click', closeModal);
     okProfile.addEventListener('click', profileInputHandle);
+
+    ShowModal();
+    
 }
 
 newPost.addEventListener('click', e => {
