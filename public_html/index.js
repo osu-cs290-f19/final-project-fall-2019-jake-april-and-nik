@@ -40,13 +40,45 @@ function darkMode(){
     
 }
 
-function onClickName(){
+function closeModal(event) {
+    var modalBackground = document.getElementById('modal-background');
+    var modalContent = document.getElementById('modal-content');
+    modalBackground.style.display = 'none';
+    modalContent.style.display = 'none';
+}
+
+function ShowModal() {
+    console.log('in show modal');
+    var modalBackground = document.getElementById('modal-background');
+    var modalContent = document.getElementById('modal-content');
+
+    modalBackground.style.display = 'block';
+    modalContent.style.display = 'block';
+}
+
+function profileInputHandle(event) {
+    picture = document.getElementById('username-input');
+    name = document.getElementById('profile-photo-url');
+    socket.emit('profile', picture);
+    socket.emit('new-user', name);
+}
+
+function onClickName() {
+    /*
     document.getElementById("dark-mode-user-name").textContent = prompt("What do you want your name to be");
     picture = prompt("Link for image");
     name = document.getElementById("dark-mode-user-name").textContent;
     socket.emit('profile', picture);
     socket.emit('new-user', name);
-
+    */
+    ShowModal();
+    var closeModal = document.getElementById('close-modal');
+    var okProfile = document.getElementById('ok-profile');
+    closeModal.addEventListener('click', closeModal);
+    okProfile.addEventListener('click', profileInputHandle);
+   
+   
+    
 }
 
 newPost.addEventListener('click', e => {
