@@ -32,10 +32,11 @@ body {
   /*border: 2px black dashed;*/
 }
 
-.site-image{
- width: auto;
- max-height: 14vh;
- z-index: -1;
+.site-image {
+    width: auto;
+    max-height: 14vh;
+    z-index: -1;
+    box-shadow: 0 0 9px orange, 0 0 11px orange;
 }
 
 .site-name {
@@ -267,7 +268,7 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color:dimgray;
 }
 #modal-content {
     position: fixed;
@@ -283,14 +284,13 @@ body {
     display: none;
 }
 
-
 .modal-body{
     width: auto;
-    max-width: 600px;
-    min-width: 350px;
-    min-height: 300px;
+    max-width: 700px;
+    min-width: 400px;
+    min-height: 60px;
     margin: 40px auto;
-    background-color: #fff;
+    background-color:black;
     border-radius: 15px;
 }
 
@@ -303,18 +303,36 @@ body {
     .modal-header h3 {
         margin: 0;
         font-size: 28px;
+        color: darkorange;
+        font-weight: bold;
+        text-shadow: 0 0 1px orange, 0 0 3px orange;
+        background-color:black;
     }
+
+label {
+    font-weight:bold;
+    font-size:small;
+    color:darkorange;
+    position:inherit;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 #close-modal {
     position: absolute;
-    right: 10px;
-    top: 5px;
+    right: 25px;
+    top: 10px;
     font-size: 24px;
     border: none;
     background: none;
     padding: 0;
     cursor: pointer;
+    color:red;
 }
+
+    #close-modal:hover {
+     font-weight:bolder;   
+    }
 
 .modal-footer {
     display: flex;
@@ -323,6 +341,13 @@ body {
 }
 
 #ok-profile {
-    margin-right: 20px;
+    display: flex;
+    background-color: darkorange;
+    color: black;
+    font-weight: bold;
+    box-shadow: 3px 5px 5px 1px rgba(0, 0, 0, 1);
 }
 
+    #ok-profile:hover {
+        box-shadow: 5px 7px 7px 3px rgba(0, 0, 0, 1);
+    }
