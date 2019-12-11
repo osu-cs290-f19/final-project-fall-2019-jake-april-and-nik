@@ -7,6 +7,19 @@ var name = document.getElementById("dark-mode-user-name").textContent;
 var picture ='https://icon-library.net/images/tumblr-avatar-icon/tumblr-avatar-icon-26.jpg';
 var c = ['#beef00', '#ff0028', '#f2d53c', '#ffaaab', '#51d0de', '#DCC7AA', '#F7C331', '#c2dde6'];
 var col, off = '1';
+var messagesName = document.getElementById('nameBenny');
+var messagesBenny = document.getElementById('post-text');
+var pictureBenny = document.getElementById('pictureBenny');
+
+// JSON for post
+var data = {
+    "text": "Hey! Welcome to Benny Chan! Enjoy your stay.",
+    "name": "Benny Chan",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/314e1jgfh0L.jpg"
+  };
+  messagesName.textContent = data.name;
+  messagesBenny.textContent = data.text;
+  pictureBenny.src = data.image;
 
 // Socket io ---------------------------------
 const socket = io('http://localhost:3000');
