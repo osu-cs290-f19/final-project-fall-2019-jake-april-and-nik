@@ -42,16 +42,16 @@
             display:block;
             text-align:center
         }
+        img{
+            z-index: -1;
+        }
     </style>
   </head>
     
   <body id="body">
-        <div class = "banner">
-                <div class="site-name">
-                    <img class="site-image" scr="/benny_chan_neon.png">
-                </div>
-            </div>
-
+        
+    <%- include('partials/banner.ejs') %>
+    
         <div id ="room-container" class='center'>
             <h2 id='element'>Chat Rooms</h2>
             <% Object.keys(rooms).forEach(room =>{ %>
