@@ -39,46 +39,52 @@ function darkMode(){
     document.getElementById("dark-mode-send").classList.toggle("dark_mode_label");
     
 }
-
-function closeModal(event) {
+function closeModal() {
     var modalBackground = document.getElementById('modal-background');
     var modalContent = document.getElementById('modal-content');
     modalBackground.style.display = 'none';
     modalContent.style.display = 'none';
 }
 
+function clearModal() {
+    console.log('in clear modal');
+    document.getElementById('username-input').value = '';
+    document.getElementById('profile-photo-url').value = '';
+}
+
+function cancelModal() {
+    console.log('in cancel modal');
+    document.getElementById('username-input').value = 'Anon';
+    document.getElementById('profile-photo-url').value = 'https://icon-library.net/images/tumblr-avatar-icon/tumblr-avatar-icon-26.jpg';
+    closeModal();
+}
+
 function ShowModal() {
     console.log('in show modal');
+    clearModal();
     var modalBackground = document.getElementById('modal-background');
     var modalContent = document.getElementById('modal-content');
-
+    var cancel = document.getElementById('close-modal');
+    cancel.addEventListener('click', cancelModal);
     modalBackground.style.display = 'block';
     modalContent.style.display = 'block';
 }
 
 function profileInputHandle(event) {
-    picture = document.getElementById('username-input');
-    name = document.getElementById('profile-photo-url');
-    socket.emit('profile', picture);
-    socket.emit('new-user', name);
-}
-
-function onClickName() {
-    /*
-    document.getElementById("dark-mode-user-name").textContent = prompt("What do you want your name to be");
-    picture = prompt("Link for image");
+   
+    document.getElementById("dark-mode-user-name").textContent = document.getElementById('username-input').value;
+    picture = document.getElementById('profile-photo-url').value;
     name = document.getElementById("dark-mode-user-name").textContent;
     socket.emit('profile', picture);
     socket.emit('new-user', name);
-    */
+
+    closeModal();
+}
+
+function onClickName() {
     ShowModal();
-    var closeModal = document.getElementById('close-modal');
     var okProfile = document.getElementById('ok-profile');
-    closeModal.addEventListener('click', closeModal);
     okProfile.addEventListener('click', profileInputHandle);
-   
-   
-    
 }
 
 newPost.addEventListener('click', e => {

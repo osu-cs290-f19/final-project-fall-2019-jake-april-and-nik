@@ -267,7 +267,7 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: dimgray;
 }
 #modal-content {
     position: fixed;
@@ -286,35 +286,44 @@ body {
 
 .modal-body{
     width: auto;
-    max-width: 600px;
-    min-width: 350px;
-    min-height: 300px;
+    max-width: 700px;
+    min-width: 400px;
+    min-height: 70px;
     margin: 40px auto;
-    background-color: #fff;
+    background-color: black;
     border-radius: 15px;
 }
 
-
+label {
+    color:darkorange;
+}
 .modal-header {
     position: relative;
     padding: 10px 20px;
+    background-color:black;
 }
 
     .modal-header h3 {
         margin: 0;
         font-size: 28px;
+        color:darkorange;
     }
 
 #close-modal {
     position: absolute;
-    right: 10px;
+    right: 25px;
     top: 5px;
     font-size: 24px;
     border: none;
     background: none;
     padding: 0;
     cursor: pointer;
+    color:red;
+
 }
+    #close-modal:hover {
+        font-weight:bolder;
+    }
 
 .modal-footer {
     display: flex;
@@ -324,9 +333,12 @@ body {
 
 #ok-profile {
     margin-right: 20px;
+    font-weight: bold;
+    color: black;
+    background-color: darkorange;
+    box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 1);
 }
+    #ok-profile:hover {
+        box-shadow: 6px 6px 8px 3px rgba(0, 0, 0, 1);
+    }
 
-#modal-close {
-    color: #333;
-    background-color: #fff;
-}
