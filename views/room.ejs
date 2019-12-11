@@ -22,7 +22,6 @@
   <body id="body">
 
       <audio id="audio" src="https://www.soundjay.com/button/sounds/button-16.mp3" autoplay="false" ></audio>
-
       
     <!--   This is our banner or the top of the webpage -->
       <div class = "banner">
@@ -42,7 +41,7 @@
           <li><a onClick="darkMode(), playSound(), onClickMenu()">Dark Mode</a></li>
           <li><a onClick="playSound()" href="/">Chat Rooms</a></li>
           <li><a onClick="changeColor(), playSound(), onClickMenu()" >Random Text Color</a></li>
-          <li><a></a></li>
+          <li><a onClick="muteSound(), onClickMenu()" id="sound">Toggle Sound</a></li>
         </ul>
       </div>
 
@@ -51,7 +50,7 @@
     <!--   This is our overall content for the page -->
       
     <main class="site-content">
-        
+
         <div class="site-user-info, center" id= "site-user-info">
           <label for="site-username-btn" class="username-static-label" id="dark-mode-user">Username:</label>
           <label for="site-username-btn" class="username-dynamic-label" id="dark-mode-user-name">Anon</label>
@@ -59,7 +58,7 @@
               <button id="username-btn" class="change-username-btn" onclick="onClickName(), playSound()">Change Username</button>          
             </div>
         </div>
-        
+
   
         <!--   This is our chatbox / chatbox sender-->
    

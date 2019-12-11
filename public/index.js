@@ -6,7 +6,7 @@ var postsContainer = document.getElementById("message-display");
 var name = document.getElementById("dark-mode-user-name").textContent;
 var picture ='https://icon-library.net/images/tumblr-avatar-icon/tumblr-avatar-icon-26.jpg';
 var c = ['#beef00', '#ff0028', '#f2d53c', '#ffaaab', '#51d0de', '#DCC7AA', '#F7C331', '#c2dde6'];
-var col;
+var col, off = '1';
 
 // Socket io ---------------------------------
 const socket = io('http://localhost:3000');
@@ -45,7 +45,21 @@ socket.on('room-created', room=>{
 // plays message notify sound
 function playSound() {
     var sound = document.getElementById("audio");
-    sound.play();
+    if(off === '1')
+        sound.play();
+    
+}
+
+function muteSound() {
+    var s = document.getElementById('sound');
+    if(off === '1'){
+        off = '0';
+        s.textContent = 'Toggle Sound (Muted)'
+    }
+    else{
+        off = '1';
+        s.textContent = 'Toggle Sound'
+    }
 }
 
 // animation for hamburger menu/transition
@@ -126,6 +140,7 @@ function onClickName() {
     
 }
 
+// gives a random color to the user
 function changeColor(){
     var i = Math.floor(Math.random() * 8);
     col = c[i];
