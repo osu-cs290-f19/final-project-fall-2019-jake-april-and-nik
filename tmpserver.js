@@ -42,7 +42,7 @@ app.use(express.static('public'));
  */
 app.get('/', function(req, res, next){
     
-    res.status(200).sendFile(path.join(__dirname, 'public_html/index.html', req.url));
+    res.status(200).sendFile(path.join(__dirname, 'public_html/index.html'));
 });
 
 //get everything else
