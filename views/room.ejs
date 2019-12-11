@@ -32,16 +32,16 @@
       </div>
       
       <div id="menu-bar">
-        <div id="menu" onclick="onClickMenu()">
+        <div id="menu" onclick="onClickMenu(), playSound()">
           <div id="bar1" class="bar"></div>
           <div id="bar2" class="bar"></div>
           <div id="bar3" class="bar"></div>
         </div>
         <ul class="nav" id="nav">
           <li><a>MENU</a></li>
-          <li><a onClick="darkMode()">Dark Mode</a></li>
-          <li><a href="/">Chat Rooms</a></li>
-          <li><a></a></li>
+          <li><a onClick="darkMode(), playSound(), onClickMenu()">Dark Mode</a></li>
+          <li><a onClick="playSound()" href="/">Chat Rooms</a></li>
+          <li><a onClick="changeColor(), playSound(), onClickMenu()" >Random Text Color</a></li>
           <li><a></a></li>
         </ul>
       </div>
@@ -56,7 +56,7 @@
           <label for="site-username-btn" class="username-static-label" id="dark-mode-user">Username:</label>
           <label for="site-username-btn" class="username-dynamic-label" id="dark-mode-user-name">Anon</label>
           <div class="site-username-btn">
-              <button id="username-btn" class="change-username-btn" onclick="onClickName()">Change Username</button>          
+              <button id="username-btn" class="change-username-btn" onclick="onClickName(), playSound()">Change Username</button>          
             </div>
         </div>
         
@@ -98,7 +98,7 @@
         <div id="modal-content" class="hidden">
             <div class="modal-header">
                 <h3>Change Profile</h3>
-                <button type="button" id="close-modal">&times;</button>
+                <button type="button" id="close-modal" onClick="playSound()">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="user-input-elem">
@@ -111,7 +111,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" id="ok-profile">OK</button>
+                <button type="button" id="ok-profile" onClick="playSound()">OK</button>
             </div> 
         </div>
             

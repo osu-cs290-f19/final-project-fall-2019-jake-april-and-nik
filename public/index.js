@@ -5,6 +5,8 @@ var posts = document.getElementsByClassName("message")
 var postsContainer = document.getElementById("message-display");
 var name = document.getElementById("dark-mode-user-name").textContent;
 var picture ='https://icon-library.net/images/tumblr-avatar-icon/tumblr-avatar-icon-26.jpg';
+var c = ['#beef00', '#ff0028', '#f2d53c', '#ffaaab', '#51d0de', '#DCC7AA', '#F7C331', '#c2dde6'];
+var col;
 
 // Socket io ---------------------------------
 const socket = io('http://localhost:3000');
@@ -23,7 +25,7 @@ socket.on('chat-message', data =>{
         posts[0].remove();
     }
     var name = document.getElementById("dark-mode-user-name").textContent;
-    insertNewPost(data.message, data.name, data.picture);
+    insertNewPost(data.message, data.name, data.picture, col);
 });
 
 socket.on('room-created', room=>{
@@ -124,6 +126,11 @@ function onClickName() {
     
 }
 
+function changeColor(){
+    var i = Math.floor(Math.random() * 8);
+    col = c[i];
+}
+
 // creating a new post, making sure everything is valid and popping data off the top if too many posts
 newPost.addEventListener('click', e => {
     e.preventDefault();
@@ -134,7 +141,7 @@ newPost.addEventListener('click', e => {
             posts[0].remove();
         }
         playSound();
-        insertNewPost(message, document.getElementById("dark-mode-user-name").textContent, picture);
+        insertNewPost(message, document.getElementById("dark-mode-user-name").textContent, picture, col);
         socket.emit('send-chat-message', roomName, message);
         msgToSend.value = '';
         event.stopPropagation();
@@ -145,7 +152,7 @@ newPost.addEventListener('click', e => {
 
 /// Standard insert html
 
-function insertNewPost(m, n, p) {
+function insertNewPost(m, n, p, c) {
   var contents = document.createElement('div');
   contents.classList.add("message");
     
@@ -173,6 +180,7 @@ function insertNewPost(m, n, p) {
   var msg = document.createElement('p');
   msg.id = "post-text";
   msg.textContent = m;
+  msg.style.color = c;
   info.appendChild(msg);
     
   postsContainer.appendChild(contents);
