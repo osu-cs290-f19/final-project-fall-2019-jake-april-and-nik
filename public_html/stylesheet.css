@@ -243,19 +243,40 @@ body {
   display: inline-block;
 }
 
-
-.chatbox-sender{
-    margin: auto;
-    position: absolute;
-	bottom: -80px;
-	left: 0px;
+.chatbox-label-text{
+  display: none;  
 }
 
+.chatbox-sender{
+    display: inline-flex;
+    margin: none;
+    width:100%;
+    position: absolute;
+	bottom: -80px;
+}
 
+/*strange div around the chatbox.*/
+.chatbox-label-div{
+    width:100%;
+}
+
+/*where you actually enter class*/
+.chatbox-class{
+    color: #ff8300;
+    background-color: black;
+    font-size: 14pt;
+    border: 2px solid black;
+    position:relative;
+    height: 5vh;
+    width: 100%;
+}
+
+/*This is the class for the send button*/
 .send-message{
+    display: none; /*decided that we don't really need it.*/
+    background-color: black;
+    border: 2px solid gray;
     position: relative; 
-    height: 25px;
-    width: 25px;
-    left: 200px;
-    bottom: 25px;
+    height: 5vh;
+    width: 5vw;
 }
