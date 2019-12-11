@@ -20,13 +20,11 @@
   </head>
     
   <body id="body">
-
       <audio id="audio" src="https://www.soundjay.com/button/sounds/button-16.mp3" autoplay="false" ></audio>
       
     <!--   This is our banner or the top of the webpage -->
     <%- include('partials/banner.ejs') %>
-
-      
+    <h4>Room: <%= roomName %></h4>
       <div id="menu-bar">
         <div id="menu" onclick="onClickMenu(), playSound()">
           <div id="bar1" class="bar"></div>

@@ -17,6 +17,7 @@ var data = {
     "name": "Benny Chan",
     "image": "https://images-na.ssl-images-amazon.com/images/I/314e1jgfh0L.jpg"
   };
+  
   messagesName.textContent = data.name;
   messagesBenny.textContent = data.text;
   pictureBenny.src = data.image;
@@ -149,7 +150,7 @@ newPost.addEventListener('click', e => {
             posts[0].remove();
         }
         playSound();
-        insertNewPost(message, document.getElementById("dark-mode-user-name").textContent, picture, col);
+        insertNewPost(message, "You: " + document.getElementById("dark-mode-user-name").textContent, picture, col);
         socket.emit('send-chat-message', roomName, message);
         msgToSend.value = '';
         event.stopPropagation();
@@ -187,5 +188,6 @@ function insertNewPost(m, n, p, c) {
   msg.style.color = c;
   info.appendChild(msg);
 
+  playSound();
   postsContainer.appendChild(contents);
 } 
