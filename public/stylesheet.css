@@ -308,7 +308,7 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color:dimgray;
+    background-color: dimgray;
 }
 #modal-content {
     position: fixed;
@@ -324,54 +324,46 @@ body {
     display: none;
 }
 
+
 .modal-body{
     width: auto;
     max-width: 700px;
     min-width: 400px;
-    min-height: 60px;
+    min-height: 70px;
     margin: 40px auto;
-    background-color:black;
+    background-color: black;
     border-radius: 15px;
 }
 
-
+label {
+    color:darkorange;
+}
 .modal-header {
     position: relative;
     padding: 10px 20px;
+    background-color:black;
 }
 
     .modal-header h3 {
         margin: 0;
         font-size: 28px;
-        color: darkorange;
-        font-weight: bold;
-        text-shadow: 0 0 1px orange, 0 0 3px orange;
-        background-color:black;
+        color:darkorange;
     }
-
-label {
-    font-weight:bold;
-    font-size:small;
-    color:darkorange;
-    position:inherit;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
 
 #close-modal {
     position: absolute;
     right: 25px;
-    top: 10px;
+    top: 5px;
     font-size: 24px;
     border: none;
     background: none;
     padding: 0;
     cursor: pointer;
     color:red;
-}
 
+}
     #close-modal:hover {
-     font-weight:bolder;   
+        font-weight:bolder;
     }
 
 .modal-footer {
@@ -381,16 +373,16 @@ label {
 }
 
 #ok-profile {
-    display: flex;
-    background-color: darkorange;
-    color: black;
+    margin-right: 20px;
     font-weight: bold;
-    box-shadow: 3px 5px 5px 1px rgba(0, 0, 0, 1);
+    color: black;
+    background-color: darkorange;
+    box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 1);
 }
-
     #ok-profile:hover {
-        box-shadow: 5px 7px 7px 3px rgba(0, 0, 0, 1);
+        box-shadow: 6px 6px 8px 3px rgba(0, 0, 0, 1);
     }
+
     
     /*
     #room-form{
