@@ -126,13 +126,6 @@ function profileInputHandle(event) {
 
 // runs event when clicking 'Change Username'
 function onClickName() {
-    /*
-    document.getElementById("dark-mode-user-name").textContent = prompt("What do you want your name to be");
-    picture = prompt("Link for image");
-    name = document.getElementById("dark-mode-user-name").textContent;
-    socket.emit('profile', picture);
-    socket.emit('new-user', name);
-    */
     var closeModal = document.getElementById('close-modal');
     var okProfile = document.getElementById('ok-profile');
     okProfile.addEventListener('click', profileInputHandle);
